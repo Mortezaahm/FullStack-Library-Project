@@ -15,6 +15,7 @@ namespace LibraryApi.Services
             BookStore.Books.Add(book);
         }
 
+        // Update only the fields that are allowed to be changed
         public void Update(Book book)
         {
             var existing = BookStore.Books.FirstOrDefault(b => b.Id == book.Id);
