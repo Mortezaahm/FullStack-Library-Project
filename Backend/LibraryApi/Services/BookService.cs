@@ -11,7 +11,8 @@ namespace LibraryApi.Services
 
         public void Add(Book book)
         {
-            book.Id = BookStore.Books.Max(b => b.Id) + 1;
+            book.Id = BookStore.Books.Any()
+            ? BookStore.Books.Max(b => b.Id) + 1 : 1;
             BookStore.Books.Add(book);
         }
 
