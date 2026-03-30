@@ -31,3 +31,11 @@ C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\Libr
 C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\obj\Debug\net9.0\LibraryApi.pdb
 C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\obj\Debug\net9.0\LibraryApi.genruntimeconfig.cache
 C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\obj\Debug\net9.0\ref\LibraryApi.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\46737\Documents\ITHögskolan\LIA\FullStack-Library-Project\backend\LibraryApi\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll

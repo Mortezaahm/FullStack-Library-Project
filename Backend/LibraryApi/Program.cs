@@ -5,6 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add DI
 builder.Services.AddScoped<BookService>();
 
+// Add JWT
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<BookService>();
+
 // Add services to the container.
 builder.Services.AddControllers(); // register controllers
 
