@@ -9,12 +9,10 @@ namespace LibraryApi.Controllers
     public class BooksController : ControllerBase
     {
         private readonly BookService _service;
-
-        public BooksController()
+        public BooksController(BookService service)
         {
-            _service = new BookService();
+            _service = service;
         }
-
         [HttpGet]
         public IActionResult GetAll() => Ok(_service.GetAll());
 

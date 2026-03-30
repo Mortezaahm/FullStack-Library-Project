@@ -1,4 +1,9 @@
+using LibraryApi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add DI
+builder.Services.AddScoped<BookService>();
 
 // Add services to the container.
 builder.Services.AddControllers(); // register controllers
