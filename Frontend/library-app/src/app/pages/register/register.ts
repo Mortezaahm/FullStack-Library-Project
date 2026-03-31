@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router, RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.html',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule]
+  imports: [CommonModule, FormsModule, RouterLink]
 })
 export class Register {
-  email = '';
+  username = '';
   password = '';
   confirmPassword = '';
   error = '';
@@ -19,16 +19,18 @@ export class Register {
   constructor(private router: Router, private http: HttpClient) {}
 
   submit() {
-  if (!this.email || !this.password || this.password !== this.confirmPassword) {
+  if (!this.username || !this.password || this.password !== this.confirmPassword) {
     this.error = 'Invalid input or passwords do not match';
     return;
   }
 
-  this.http.post('https://localhost:5131/api/register', {
-    email: this.email,
+  this.http.post('http://localhost:5131/api/auth/register', {
+    username: this.username,
     password: this.password
-  }).subscribe({
+  } , { headers: { 'Content-Type': 'application/json' } }
+).subscribe({
     next: res => {
+      console.log('Registration successful:', res);
       alert('Registered successfully!');
       this.router.navigate(['/']);
     },

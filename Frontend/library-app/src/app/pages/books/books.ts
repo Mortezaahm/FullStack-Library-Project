@@ -22,8 +22,14 @@ export class Books implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
-    // API backend URL should be replaced with actual endpoint
-    this.http.get<Book[]>('http://localhost:5131/api/books')
+    const token = localStorage.getItem('token');
+    if (!token) {
+      this.router.navigate(['/']);
+      return;
+    }
+    this.http.get<Book[]>('http://localhost:5131/api/books', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
       .subscribe(data => this.books = data);
   }
 
