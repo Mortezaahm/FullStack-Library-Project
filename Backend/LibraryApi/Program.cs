@@ -16,6 +16,17 @@ builder.Services.AddScoped<BookService>();
 // Add services to the container.
 builder.Services.AddControllers(); // register controllers
 
+// add cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
 // JWT
 var key = "MY_SUPER_SECRET_KEY_FOR_JWT_AUTHENTICATION_12345";
 
@@ -38,6 +49,8 @@ builder.Services.AddAuthentication(options =>
 });
 
 var app = builder.Build();
+
+app.UseCors("AllowAll"); // use the CORS policy
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
