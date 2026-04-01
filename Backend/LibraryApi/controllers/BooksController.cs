@@ -40,6 +40,26 @@ namespace LibraryApi.Controllers
             return NoContent();
         }
 
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, [FromBody] Book updated)
+        {
+            var existing = _service.Get(id);
+            if (existing == null) return NotFound();
+
+            if (!string.IsNullOrEmpty(updated.Title))
+                existing.Title = updated.Title;
+
+            if (!string.IsNullOrEmpty(updated.Author))
+                existing.Author = updated.Author;
+
+            if (updated.PublishDate != default)
+                existing.PublishDate = updated.PublishDate;
+
+            _service.Update(existing);
+
+            return Ok(existing);
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
