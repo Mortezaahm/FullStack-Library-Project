@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <h2>{{ id ? 'Edit Book' : 'Add Book' }}</h2>
+
+  <form (ngSubmit)="submit()" class="mt-4">
+    <div class="mb-3">
+      <label>Title</label>
+      <input [(ngModel)]="book.title" name="title" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Author</label>
+      <input [(ngModel)]="book.author" name="author" class="form-control" required />
+    </div>
+
+    <div class="mb-3">
+      <label>Publish Date</label>
+      <input
+        [(ngModel)]="book.publishDate"
+        name="publishDate"
+        type="date"
+        class="form-control"
+        required
+      />
+    </div>
+
+    <button class="btn btn-success">{{ id ? 'Update' : 'Create' }}</button>
+  </form>
+</div>

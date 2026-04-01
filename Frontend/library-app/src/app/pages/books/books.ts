@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -14,7 +14,7 @@ interface Book {
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './books.html'
 })
 export class Books implements OnInit {
@@ -23,7 +23,7 @@ export class Books implements OnInit {
   constructor(private http: HttpClient, private router: Router, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
-    console.log('Books component initialized');
+    // console.log('Books component initialized');
     const token = localStorage.getItem('token');
     if (!token) {
       this.router.navigate(['/']);
@@ -40,6 +40,21 @@ export class Books implements OnInit {
         error: err => console.error(err)
       });
   }
+
+  delete(id: number) {
+    const token = localStorage.getItem('token');
+
+    if (!confirm('Are you sure?')) return;
+
+    this.http.delete(`http://localhost:5131/api/books/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    }).subscribe(() => {
+      this.books = this.books.filter(b => b.id !== id);
+      this.cdRef.detectChanges();
+    });
+  }
+
+
 
   logout() {
     localStorage.removeItem('token');
