@@ -1,20 +1,20 @@
 using LibraryApi.Models;
 using LibraryApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class BooksController : ControllerBase
     {
         private readonly BookService _service;
-
-        public BooksController()
+        public BooksController(BookService service)
         {
-            _service = new BookService();
+            _service = service;
         }
-
         [HttpGet]
         public IActionResult GetAll() => Ok(_service.GetAll());
 

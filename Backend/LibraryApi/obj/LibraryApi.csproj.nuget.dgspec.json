@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\LibraryApi\\LibraryApi.csproj": {}
+    "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\libraryApi\\LibraryApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\LibraryApi\\LibraryApi.csproj": {
+    "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\libraryApi\\LibraryApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\LibraryApi\\LibraryApi.csproj",
+        "projectUniqueName": "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\libraryApi\\LibraryApi.csproj",
         "projectName": "LibraryApi",
-        "projectPath": "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\LibraryApi\\LibraryApi.csproj",
+        "projectPath": "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\libraryApi\\LibraryApi.csproj",
         "packagesPath": "C:\\Users\\46737\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\LibraryApi\\obj\\",
+        "outputPath": "C:\\Users\\46737\\Documents\\ITHögskolan\\LIA\\FullStack-Library-Project\\backend\\libraryApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\46737\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -44,6 +44,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.14, )"

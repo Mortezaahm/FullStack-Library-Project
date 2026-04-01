@@ -11,10 +11,12 @@ namespace LibraryApi.Services
 
         public void Add(Book book)
         {
-            book.Id = BookStore.Books.Max(b => b.Id) + 1;
+            book.Id = BookStore.Books.Any()
+            ? BookStore.Books.Max(b => b.Id) + 1 : 1;
             BookStore.Books.Add(book);
         }
 
+        // Update only the fields that are allowed to be changed
         public void Update(Book book)
         {
             var existing = BookStore.Books.FirstOrDefault(b => b.Id == book.Id);
