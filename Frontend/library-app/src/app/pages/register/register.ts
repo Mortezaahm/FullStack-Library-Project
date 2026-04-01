@@ -30,7 +30,7 @@ export class Register {
   } , { headers: { 'Content-Type': 'application/json' } }
 ).subscribe({
     next: res => {
-      console.log('Registration successful:', res);
+      // console.log('Registration successful:', res);
       alert('Registered successfully!');
       this.router.navigate(['/']);
     },

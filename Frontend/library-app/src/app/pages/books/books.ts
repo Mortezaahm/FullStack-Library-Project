@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectorRef } from '@angular/core';
 
 interface Book {
   id: number;
@@ -13,15 +14,16 @@ interface Book {
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './books.html'
 })
 export class Books implements OnInit {
   books: Book[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private cdRef: ChangeDetectorRef) {}
 
   ngOnInit() {
+    console.log('Books component initialized');
     const token = localStorage.getItem('token');
     if (!token) {
       this.router.navigate(['/']);
@@ -30,7 +32,13 @@ export class Books implements OnInit {
     this.http.get<Book[]>('http://localhost:5131/api/books', {
       headers: { Authorization: `Bearer ${token}` }
     })
-      .subscribe(data => this.books = data);
+      .subscribe({
+        next: data => {
+          this.books = data;
+          this.cdRef.detectChanges();
+        },
+        error: err => console.error(err)
+      });
   }
 
   logout() {
